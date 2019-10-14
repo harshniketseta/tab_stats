@@ -1,7 +1,20 @@
 {
-  "manifest_version": 2,
   "name": "Tab Stats",
   "version": "0.1",
+  "manifest_version": 2,
+  "author": "Harshniket Seta <harshniketseta@gmail.com>",
+  "description": "Provides statistics for your chrome tabs.",
+  "homepage_url": "https://github.com/harshniketseta/tab_stats",
+  "minimum_chrome_version": "21",
+  "icons": {
+    "128": "icons/128.png",
+    "32": "icons/32.png",
+    "16": "icons/16.png"
+  },
+  "offline_enabled": true,
+  "omnibox": {
+    "keyword": "tab-stats"
+  },
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
@@ -9,11 +22,11 @@
     }
   ],
   "browser_action": {
-    "default_popup": "popup/index.html",
-    "default_icon": "icon.png"
+    "default_popup": "popup/index.html"
   },
   "background": {
-    "scripts": ["background.js"]
+    "scripts": ["background.js"],
+    "persistent": true
   },
-  "permissions": ["storage"]
+  "permissions": ["storage", "tabs"]
 }
