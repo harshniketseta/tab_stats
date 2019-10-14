@@ -9,6 +9,9 @@ var tabStatsService = (function TabStatsService() {
       tabStats[this.key] = {};
       return tabStats;
     },
+    getKey: function() {
+      return this.key;
+    },
     newTabStats: function(tabId) {
       return {
         id: tabId,
@@ -145,27 +148,27 @@ chrome.runtime.onInstalled.addListener(function() {
 });
 
 chrome.tabs.onCreated.addListener(function(tab) {
-  chrome.storage.local.get([key], function(tabStats) {
+  chrome.storage.local.get([tabStatsService.getKey()], function(tabStats) {
     tabStatsService.tabCreated(tab, tabStats);
   });
 });
 
 chrome.tabs.onRemoved.addListener(function(tabId, removeInfo) {
-  chrome.storage.local.get([key], function(tabStats) {
+  chrome.storage.local.get([tabStatsService.getKey()], function(tabStats) {
     tabStatsService.tabRemoved(tabId, removeInfo, tabStats);
   });
 });
 
 chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
   if (tabStatsService.tabUpdatedValid(tab, changeInfo)) {
-    chrome.storage.local.get([key], function(tabStats) {
+    chrome.storage.local.get([tabStatsService.getKey()], function(tabStats) {
       tabStatsService.tabUpdated(tabId, tab, tabStats);
     });
   }
 });
 
 chrome.tabs.onAttached.addListener(function(tabId, attachInfo) {
-  chrome.storage.local.get([key], function(tabStats) {
+  chrome.storage.local.get([tabStatsService.getKey()], function(tabStats) {
     tabStatsService.tabAttached(tabId, attachInfo, tabStats);
   });
 });
