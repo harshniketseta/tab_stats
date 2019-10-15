@@ -3,15 +3,59 @@
     <title>Tab Stats</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link type="text/css" rel="stylesheet" href="index.css" />
-    <script type="text/javascript" src="index.js"></script>
-    <script type="text/javascript" src="../dependencies/moment.min.js"></script>
   </head>
   <body>
     <h2>
       Current Tab Stats
     </h2>
-    <table style="width: 100%;">
+    <table id="stats" style="width: 100%;">
       <tbody></tbody>
     </table>
+    <h2>
+      Actions
+    </h2>
+    <table id="actions" style="width: 100%;">
+      <tbody>
+        <tr>
+          <td colspan="2">
+            Sort by Loaded
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <button id="loaded-asc">
+              <img src="./icons/sort-asc.png" />
+            </button>
+          </td>
+          <td>
+            <button id="loaded-desc">
+              <img src="./icons/sort-desc.png" />
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            Sort by Opened
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <button id="opened-asc">
+              <img src="./icons/sort-asc.png" />
+            </button>
+          </td>
+          <td>
+            <button id="opened-desc">
+              <img src="./icons/sort-desc.png" />
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <a href="https://www.patreon.com/bePatron?u=11110056" target="_blank"
+      >Donate on Patron!</a
+    >
   </body>
+  <script type="text/javascript" src="../dependencies/moment.min.js"></script>
+  <script type="text/javascript" src="index.js"></script>
 </html>
